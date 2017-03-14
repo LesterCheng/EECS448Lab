@@ -12,11 +12,32 @@ public class Matrix {
 	}
 	
 	//Single parameter constructor for matrix size n
-	public Matrix(int n) {
-		n = MaxSize;
+	public Matrix(int size) {
+		setN(size);
+	}
+	//Get/Set
+	public void setN(int inN) {
+		n = inN;
 	}
 	
+	public int getN() {
+		return n;
+	}
 	
+	public void setData(double in[][]) {
+		//copy values from input array into mdata
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				mdata[i][j] = in[i][j];
+			}
+		}
+	}
+	
+	public double[][] getData() {
+		return mdata;
+	}
+	
+	//Methods
 	double determinant() {
 		double det = 0.0;
 
