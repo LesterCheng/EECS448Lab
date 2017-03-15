@@ -3,21 +3,6 @@ package matrixMath;
 public class main {
 
 	public static void main(String[] args) {
-		int n = 4;
-		double input[][] = new double[n][n];
-		int counter = 1;
-		for(int i = 0; i < n; i++) {
-			for(int j = 0; j < n; j++) {
-				input[i][j] = counter;
-				counter++;
-			}
-		}
-		Matrix test = new Matrix(n);
-		test.setData(input);
-		System.out.println("Array: ");
-		printArr(test.getData());
-		System.out.println("Determinant: " + test.determinant());
-		
 
 	}
 	

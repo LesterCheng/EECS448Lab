@@ -53,7 +53,7 @@ public class Matrix {
 		{
 			for (int i = 0; i < n; ++i)
 			{
-				det += Math.pow(-1.0, (double)i) * mdata[0][i] * subMatrix(0, i).determinant();
+				det += Math.pow(-1.0, (double)i) * (mdata[0][i] * subMatrix(0, i).determinant());
 			}
 		}
 		
@@ -81,12 +81,16 @@ public class Matrix {
 		int row = 0; 
 		for (int i = 0; i < n; ++i)
 		{
-			if (i == r) continue;
+			if (i == r) {
+				continue;
+			}
 			
 			int col = 0;
 			for (int j = 0; j < n; ++j)
 			{
-				if (j == c) continue;
+				if (j == c){
+					continue;
+				}
 				
 				sub.mdata[row][col] = mdata[i][j];
 				++col;
