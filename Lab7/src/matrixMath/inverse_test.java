@@ -2,6 +2,8 @@ package matrixMath;
 
 import static org.junit.Assert.*;
 
+import java.util.Random;
+
 import org.junit.Test;
 
 ;
@@ -50,7 +52,16 @@ public class inverse_test {
 		expected[2][1] = 0.150;
 		expected[2][2] = 0.052;
 		
-		assertArrayEquals(expected, output);
+		//Create a random number generator 
+		Random rand = new Random(); 
+		int randi = rand.nextInt(n); 
+		int randj = rand.nextInt(n);
+		
+//		String out = String.format("Array: [%d, %d]", randi, randj); 
+//		System.out.println(out);
+		
+		//Randomly select an index to be test 
+		assertEquals(expected[randi][randj], output[randi][randj], 0.001);
 	}
 
 }
