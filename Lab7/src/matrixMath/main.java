@@ -6,29 +6,37 @@ import java.util.Scanner;
 public class main {
 
 	public static void main(String[] args) {
-		
-		//File io
+
+		// File io
 		BufferedReader in;
 		try {
 			in = new BufferedReader(new FileReader("input.txt"));
-			
 			String str;
-			int n = Integer.parseInt(in.readLine());
-			double[][] input = new double[n][n];
-			int i = 0;
-			while((str = in.readLine()) != null) {
-				Scanner numRead = new Scanner(str);
-				int j = 0;
-				while(numRead.hasNext()){
-					input[i][j] = numRead.nextDouble();
-					j++;
+			while ((str = in.readLine()) != null) {
+				System.out.println(str);
+				// Read in matrix
+				// Get size of array
+				int n = Integer.parseInt(str);
+				double[][] input = new double[n][n];
+				int i = 0;
+				// Read line
+				while (i < n) {
+					str = in.readLine();
+					// Read number in line
+					Scanner numRead = new Scanner(str);
+					int j = 0;
+					while (numRead.hasNext()) {
+						// Store input matrix in an array
+						input[i][j] = numRead.nextDouble();
+						j++;
+					}
+					i++;
 				}
-				i++;
+				// Create matrix object an pass in data from array
+				Matrix m = new Matrix(n);
+				m.setData(input);
+				printMatrix(n, m);
 			}
-			Matrix m = new Matrix(n);
-			m.setData(input);
-			printMatrix(n, m);
-			
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 			e.printStackTrace();
@@ -36,25 +44,27 @@ public class main {
 			System.out.println("Unable to read file");
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	// Function to print contents of an input array
 	public static void printArr(double[][] arr) {
-		for( double[] i : arr) {
-			for( double j : i) {
+		for (double[] i : arr) {
+			for (double j : i) {
 				System.out.print(j + " ");
 			}
 			System.out.println("");
 		}
 	}
+
+	// Function to run calculations on matrix and print results
 	public static void printMatrix(int n, Matrix m) {
 		System.out.println("M = ");
 		printArr(m.getData());
 		System.out.println("det(M) = " + m.determinant());
 		System.out.println("Minv = ");
 		printArr(m.inverse().getData());
-		
+
 	}
 
 }
