@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class main {
-
+	static String output = "";
 	public static void main(String[] args) {
 
 		// File io
@@ -31,6 +31,7 @@ public class main {
 							j++;
 						}
 						i++;
+						numRead.close();
 					}
 					// Create matrix object an pass in data from array
 					Matrix m = new Matrix(n);
@@ -38,6 +39,13 @@ public class main {
 					printMatrix(n, m);
 				}
 			}
+			try {
+			    System.setOut(new PrintStream(new File("output.txt")));
+			} catch (Exception e) {
+			     e.printStackTrace();
+			}
+			System.out.println(output);
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 			e.printStackTrace();
@@ -45,7 +53,6 @@ public class main {
 			System.out.println("Unable to read file");
 			e.printStackTrace();
 		}
-
 	}
 
 	// Function to print contents of an input array
@@ -53,35 +60,33 @@ public class main {
 		if (castInt) {
 			for (double[] i : arr) {
 				for (double j : i) {
-					System.out.print((int) j + " ");
+					output = output + ((int) j + " ");
 				}
-				System.out.println("");
+				output = output + "\n";
 			}
 		} else {
 			for (double[] i : arr) {
 				for (double j : i) {
 					if ((j == Math.floor(j))) {
-						System.out.print((int) j + " ");
+						output = output + ((int) j + " ");
 					} else {
-						System.out.print(j + " ");
+						output = output + (j + " ");
 					}
 				}
-				System.out.println("");
+				output = output + "\n";
 			}
 		}
-
 	}
 
 	// Function to run calculations on matrix and print results
 	public static void printMatrix(int n, Matrix m) {
 		double det = m.determinant();
-		System.out.println("M = ");
+		output = output + "M = \n";
 		printArr(m.getData(), true);
-		System.out.println("det(M) = " + det);
+		output = output + "det(M) = " + det;
 		if (det != 0) { // Check if determinant is 0
-			System.out.println("Minv = ");
+			output = output + "\nMinv = ";
 			printArr(m.inverse().getData(), false);
 		}
 	}
-
 }
