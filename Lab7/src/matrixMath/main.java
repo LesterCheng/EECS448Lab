@@ -1,6 +1,7 @@
 package matrixMath;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class main {
 
@@ -10,24 +11,11 @@ public class main {
 		BufferedReader in;
 		try {
 			in = new BufferedReader(new FileReader("input.txt"));
+			
 			String str;
-			
-			//Read first line to find matrix size n.
-			int n = Integer.parseInt(in.readLine());
-			
-			//Create array to hold n size matrix.
-			String[] list = new String[n];
-			int lineCount = 0;
-			//TODO: Rewrite recursively to take in any number of arrays
-			//Take in n size matrix
-			while((str = in.readLine()) != null && lineCount < n){
-				list[lineCount] = str;
-			    lineCount++;
-			}
-			
-			//Print out input contents
-			for( String i : list) {
-				System.out.println(i);
+			while((str = in.readLine()) != null) {
+				Scanner numRead = new Scanner(str);
+				System.out.println(numRead.nextDouble());
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -41,12 +29,20 @@ public class main {
 
 	// Function to print contents of an input array
 	public static void printArr(double[][] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < arr.length; j++) {
-				System.out.print(arr[i][j] + " ");
+		for( double[] i : arr) {
+			for( double j : i) {
+				System.out.print(j + " ");
 			}
 			System.out.println("");
 		}
+	}
+	public static void printMatrix(int n, Matrix m) {
+		System.out.println("M = ");
+		printArr(m.getData());
+		System.out.print("det(M) = " + m.determinant());
+		System.out.println("Minv = ");
+		printArr(m.inverse().getData());
+		
 	}
 
 }
