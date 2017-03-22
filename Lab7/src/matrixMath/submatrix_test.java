@@ -31,7 +31,7 @@ public class submatrix_test {
 
 		// case1: submatrix(0,0)
 		// Create expected matrices
-		double[][] case1 = new double[10][10];
+		double[][] case1 = new double[n-1][n-1];
 		case1[0][0] = -2;
 		case1[0][1] = 5;
 		case1[1][0] = 8;
@@ -41,7 +41,7 @@ public class submatrix_test {
 
 		// case2: submatrix(0,1)
 		// Create expected matrices
-		double[][] case2 = new double[10][10];
+		double[][] case2 = new double[n-1][n-1];
 		case2[0][0] = 4;
 		case2[0][1] = 5;
 		case2[1][0] = 2;
@@ -51,7 +51,7 @@ public class submatrix_test {
 
 		// case3: submatrix(0,2)
 		// Create expected matrices
-		double[][] case3 = new double[10][10];
+		double[][] case3 = new double[n-1][n-1];
 		case3[0][0] = 4;
 		case3[0][1] = -2;
 		case3[1][0] = 2;
@@ -61,7 +61,7 @@ public class submatrix_test {
 
 		// case4: submatrix(1,0)
 		// Create expected matrices
-		double[][] case4 = new double[10][10];
+		double[][] case4 = new double[n-1][n-1];
 		case4[0][0] = 1;
 		case4[0][1] = 1;
 		case4[1][0] = 8;
@@ -71,7 +71,7 @@ public class submatrix_test {
 
 		// case5: submatrix(1,1)
 		// Create expected matrices
-		double[][] case5 = new double[10][10];
+		double[][] case5 = new double[n-1][n-1];
 		case5[0][0] = 6;
 		case5[0][1] = 1;
 		case5[1][0] = 2;
@@ -81,7 +81,7 @@ public class submatrix_test {
 
 		// case6: submatrix(1,2)
 		// Create expected matrices
-		double[][] case6 = new double[10][10];
+		double[][] case6 = new double[n-1][n-1];
 		case6[0][0] = 6;
 		case6[0][1] = 1;
 		case6[1][0] = 2;
@@ -91,7 +91,7 @@ public class submatrix_test {
 
 		// case7: submatrix(2,0)
 		// Create expected matrices
-		double[][] case7 = new double[10][10];
+		double[][] case7 = new double[n-1][n-1];
 		case7[0][0] = 1;
 		case7[0][1] = 1;
 		case7[1][0] = -2;
@@ -101,7 +101,7 @@ public class submatrix_test {
 
 		// case8: submatrix(2,1)
 		// Create expected matrices
-		double[][] case8 = new double[10][10];
+		double[][] case8 = new double[n-1][n-1];
 		case8[0][0] = 6;
 		case8[0][1] = 1;
 		case8[1][0] = 4;
@@ -111,7 +111,7 @@ public class submatrix_test {
 
 		// case9: submatrix(2,2)
 		// Create expected matrices
-		double[][] case9 = new double[10][10];
+		double[][] case9 = new double[n-1][n-1];
 		case9[0][0] = 6;
 		case9[0][1] = 1;
 		case9[1][0] = 4;

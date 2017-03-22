@@ -18,6 +18,7 @@ public class Matrix {
 	//Get/Set
 	public void setN(int inN) {
 		n = inN;
+		mdata = new double[n][n];
 	}
 	
 	public int getN() {
