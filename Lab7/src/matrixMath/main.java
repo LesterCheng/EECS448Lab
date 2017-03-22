@@ -16,7 +16,7 @@ public class main {
 				// Read in matrix
 				// Get size of array
 				int n = Integer.parseInt(str);
-				if(n != 0) {
+				if (n != 0) {
 					double[][] input = new double[n][n];
 					int i = 0;
 					// Read line
@@ -49,23 +49,39 @@ public class main {
 	}
 
 	// Function to print contents of an input array
-	public static void printArr(double[][] arr) {
-		for (double[] i : arr) {
-			for (double j : i) {
-				System.out.print(j + " ");
+	public static void printArr(double[][] arr, boolean castInt) {
+		if (castInt) {
+			for (double[] i : arr) {
+				for (double j : i) {
+					System.out.print((int) j + " ");
+				}
+				System.out.println("");
 			}
-			System.out.println("");
+		} else {
+			for (double[] i : arr) {
+				for (double j : i) {
+					if ((j == Math.floor(j))) {
+						System.out.print((int) j + " ");
+					} else {
+						System.out.print(j + " ");
+					}
+				}
+				System.out.println("");
+			}
 		}
+
 	}
 
 	// Function to run calculations on matrix and print results
 	public static void printMatrix(int n, Matrix m) {
+		double det = m.determinant();
 		System.out.println("M = ");
-		printArr(m.getData());
-		System.out.println("det(M) = " + m.determinant());
-		System.out.println("Minv = ");
-		printArr(m.inverse().getData());
-
+		printArr(m.getData(), true);
+		System.out.println("det(M) = " + det);
+		if (det != 0) { // Check if determinant is 0
+			System.out.println("Minv = ");
+			printArr(m.inverse().getData(), false);
+		}
 	}
 
 }
