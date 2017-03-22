@@ -13,29 +13,30 @@ public class main {
 			in = new BufferedReader(new FileReader("input.txt"));
 			String str;
 			while ((str = in.readLine()) != null) {
-				System.out.println(str);
 				// Read in matrix
 				// Get size of array
 				int n = Integer.parseInt(str);
-				double[][] input = new double[n][n];
-				int i = 0;
-				// Read line
-				while (i < n) {
-					str = in.readLine();
-					// Read number in line
-					Scanner numRead = new Scanner(str);
-					int j = 0;
-					while (numRead.hasNext()) {
-						// Store input matrix in an array
-						input[i][j] = numRead.nextDouble();
-						j++;
+				if(n != 0) {
+					double[][] input = new double[n][n];
+					int i = 0;
+					// Read line
+					while (i < n) {
+						str = in.readLine();
+						// Read number in line
+						Scanner numRead = new Scanner(str);
+						int j = 0;
+						while (numRead.hasNext()) {
+							// Store input matrix in an array
+							input[i][j] = numRead.nextDouble();
+							j++;
+						}
+						i++;
 					}
-					i++;
+					// Create matrix object an pass in data from array
+					Matrix m = new Matrix(n);
+					m.setData(input);
+					printMatrix(n, m);
 				}
-				// Create matrix object an pass in data from array
-				Matrix m = new Matrix(n);
-				m.setData(input);
-				printMatrix(n, m);
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
