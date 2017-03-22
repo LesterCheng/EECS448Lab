@@ -4,7 +4,9 @@ import java.io.*;
 import java.util.Scanner;
 
 public class main {
+	// Accumulator string
 	static String output = "";
+
 	public static void main(String[] args) {
 
 		// File io
@@ -40,12 +42,14 @@ public class main {
 				}
 			}
 			try {
-			    System.setOut(new PrintStream(new File("output.txt")));
+				// Set System.out to output to text file
+				System.setOut(new PrintStream(new File("output.txt")));
 			} catch (Exception e) {
-			     e.printStackTrace();
+				e.printStackTrace();
 			}
-			System.out.println(output);
-			
+			// Print accumulated string
+			System.out.println(output + "Done!");
+
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 			e.printStackTrace();
@@ -54,6 +58,8 @@ public class main {
 			e.printStackTrace();
 		}
 	}
+
+	// Build output string
 
 	// Function to print contents of an input array
 	public static void printArr(double[][] arr, boolean castInt) {
@@ -67,6 +73,7 @@ public class main {
 		} else {
 			for (double[] i : arr) {
 				for (double j : i) {
+					// Cast double to int if number is an int
 					if ((j == Math.floor(j))) {
 						output = output + ((int) j + " ");
 					} else {
@@ -85,7 +92,7 @@ public class main {
 		printArr(m.getData(), true);
 		output = output + "det(M) = " + det;
 		if (det != 0) { // Check if determinant is 0
-			output = output + "\nMinv = ";
+			output = output + "\nMinv = \n";
 			printArr(m.inverse().getData(), false);
 		}
 	}

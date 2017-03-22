@@ -60,7 +60,7 @@ public class determinant_test {
 		input[2][0] = 2;
 		input[2][1] = 8;
 		input[2][2] = 7;
-		
+
 		test.setData(input);
 
 		assertEquals(-306.0, test.determinant(), 0);

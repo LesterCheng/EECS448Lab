@@ -9,13 +9,13 @@ public class Get_test {
 
 	@Test
 	public void testGetN() {
-		//Initialize value of n
+		// Initialize value of n
 		int n = 3;
-		
-		//Create new instance of Matrix
+
+		// Create new instance of Matrix
 		Matrix test = new Matrix(n);
-		
-		//Call GetN() method and check value
+
+		// Call GetN() method and check value
 		assertEquals(test.getN(), n);
 	}
 
